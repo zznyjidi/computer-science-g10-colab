@@ -47,3 +47,5 @@ def no():
     print("There are no visible stars in the sky... ")
 def yes():
     print("There are visible stars in the sky! ")
+
+main()
