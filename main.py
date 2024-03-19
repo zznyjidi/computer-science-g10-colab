@@ -4,7 +4,9 @@
 
 def main():
     
+
 def inp():
     season = input("Season: ")
     time_hour, time_minute = map(int, input("Enter the time (Hour[space]Minute): ").split())
     weather = input("Weather (sunny, cloudy, rainy, snowy):")
+    return season, time_hour, time_minute, weather
