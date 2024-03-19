@@ -3,7 +3,7 @@
 #Purpose: Create a program about the sky
 
 def main():
-    season, time_hour, time_minute, weather = inp()
+    season, time_hour, weather = inp()
     if season == "spring":
         if 19 >= time_hour and time_hour <= 7:
             if weather == "sunny":
