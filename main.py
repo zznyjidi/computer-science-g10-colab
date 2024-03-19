@@ -39,7 +39,7 @@ def main():
 
 def inp():
     season = input("Season (lowercase): ")
-    time_hour = input("Enter the time (24hours): ")
+    time_hour = int(input("Enter the time (24hours): "))
     weather = input("Weather (sunny, cloudy, rainy, snowy):")
     return season, time_hour, weather
 
