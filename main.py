@@ -20,7 +20,7 @@ def main():
                 no()
         else:
             no()
-    if season == "autumn" and season == "fall":
+    if season == "autumn" or season == "fall":
         if 19 >= time_hour and time_hour <= 7:
             if weather == "sunny":
                 yes()
@@ -36,6 +36,8 @@ def main():
                 no()
         else:
             no()
+    else:
+        print("N/A")
 
 def inp():
     season = input("Season (lowercase): ")
