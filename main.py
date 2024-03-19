@@ -2,8 +2,11 @@
 #Date: Mar. 19, 2024
 #Purpose: Create a program about the sky
 
+weather = 
+
 def main():
-    season, time_hour, weather = inp()
+    global weather
+    season, time_hour = inp()
     if season == "spring":
         if time_hour >= 19 or time_hour <= 7:
             if weather == "sunny":
@@ -42,8 +45,7 @@ def main():
 def inp():
     season = input("Season (lowercase): ")
     time_hour, time_minute = map(int, input("Enter the time (Hours[space]Minute)(24hours): ").split())
-    weather = input("Weather (sunny, cloudy, rainy, snowy): ")
-    return season, time_hour, weather
+    return season, time_hour
 
 def no_weather():
     print("There are no visible stars in the sky...\nFind a better weather")
