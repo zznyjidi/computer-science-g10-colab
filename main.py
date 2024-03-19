@@ -5,7 +5,7 @@
 def main():
     season, time_hour, weather = inp()
     if season == "spring":
-        if 19 >= time_hour or time_hour <= 7:
+        if time_hour >= 19 or time_hour <= 7:
             if weather == "sunny":
                 yes()
             else:
@@ -13,7 +13,7 @@ def main():
         else:
             no()
     elif season == "summer":
-        if 20 >= time_hour or time_hour <= 5:
+        if time_hour >= 20 or time_hour <= 5:
             if weather == "sunny":
                 yes()
             else:
@@ -21,7 +21,7 @@ def main():
         else:
             no()
     elif season == "autumn" or season == "fall":
-        if 19 >= time_hour or time_hour <= 7:
+        if time_hour >= 19 or time_hour <= 7:
             if weather == "sunny":
                 yes()
             else:
@@ -29,7 +29,7 @@ def main():
         else:
             no()
     elif season == "winter":
-        if 17 >= time_hour or time_hour <= 8:
+        if time_hour >= 17 or time_hour <= 8:
             if weather == "sunny":
                 yes()
             else:
