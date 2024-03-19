@@ -11,7 +11,31 @@ def main():
             else:
                 no()
         else:
-            
+            no()
+    if season == "summer":
+        if 20 >= time_hour and time_hour <= 5:
+            if weather == "sunny":
+                yes()
+            else:
+                no()
+        else:
+            no()
+    if season == "autumn":
+        if 19 >= time_hour and time_hour <= 7:
+            if weather == "sunny":
+                yes()
+            else:
+                no()
+        else:
+            no()
+    if season == "winter":
+        if 17 >= time_hour and time_hour <= 8:
+            if weather == "sunny":
+                yes()
+            else:
+                no()
+        else:
+            no()
 
 def inp():
     season = input("Season (lowercase): ")
