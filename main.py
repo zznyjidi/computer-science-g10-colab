@@ -20,7 +20,7 @@ def main():
                 no()
         else:
             no()
-    if season == "autumn":
+    if season == "autumn" and season == "fall":
         if 19 >= time_hour and time_hour <= 7:
             if weather == "sunny":
                 yes()
@@ -39,9 +39,9 @@ def main():
 
 def inp():
     season = input("Season (lowercase): ")
-    time_hour, time_minute = map(int, input("Enter the time (Hour[space]Minute)(24hours): ").split())
+    time_hour = input("Enter the time (24hours): ")
     weather = input("Weather (sunny, cloudy, rainy, snowy):")
-    return season, time_hour, time_minute, weather
+    return season, time_hour, weather
 
 def no():
     print("There are no visible stars in the sky... ")
