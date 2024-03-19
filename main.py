@@ -46,11 +46,9 @@ def inp():
     return season, time_hour, weather
 
 def no_weather():
-    print("There are no visible stars in the sky... ")
-    print("Find a better weather")
+    print("There are no visible stars in the sky...\nFind a better weather")
 def no_time():
-    print("There are no visible stars in the sky... ")
-    print("Wait for the sunset...")
+    print("There are no visible stars in the sky...\nWait for the sunset... ")
 def yes():
     print("There are visible stars in the sky! ")
 
