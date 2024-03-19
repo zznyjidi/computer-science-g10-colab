@@ -5,31 +5,31 @@
 def main():
     season, time_hour, weather = inp()
     if season == "spring":
-        if 19 >= time_hour and time_hour <= 7:
+        if 19 >= time_hour or time_hour <= 7:
             if weather == "sunny":
                 yes()
             else:
                 no()
         else:
             no()
-    if season == "summer":
-        if 20 >= time_hour and time_hour <= 5:
+    elif season == "summer":
+        if 20 >= time_hour or time_hour <= 5:
             if weather == "sunny":
                 yes()
             else:
                 no()
         else:
             no()
-    if season == "autumn" or season == "fall":
-        if 19 >= time_hour and time_hour <= 7:
+    elif season == "autumn" or season == "fall":
+        if 19 >= time_hour or time_hour <= 7:
             if weather == "sunny":
                 yes()
             else:
                 no()
         else:
             no()
-    if season == "winter":
-        if 17 >= time_hour and time_hour <= 8:
+    elif season == "winter":
+        if 17 >= time_hour or time_hour <= 8:
             if weather == "sunny":
                 yes()
             else:
