@@ -1,6 +1,8 @@
 #Group member: Qianyi, Zixuan, Chengyi, Tommy
 #Date: Mar. 19, 2024
 #Purpose: Mystery Madness Code 2 - Doc 1 - Create a program about the sky
+#         Check if you can currently see stars
+
 
 #weather = 
 
