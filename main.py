@@ -10,44 +10,16 @@ API_KEY = "PMHF3BX9NP3BNHDT7BYA2X6Y5"
 def main():
     global location, API_KEY
     sunrise, sunset, time_hour, time_min, weather = inp()
-    if season == "spring":
-        if time_hour >= 19 or time_hour <= 7:
-            istime = True
-            if weather == "sunny":
-                isweather = True
-            else:
-                isweather = False
-        else:
-            istime = False
-    elif season == "summer":
-        if time_hour >= 20 or time_hour <= 5:
-            istime = True
-            if weather == "sunny":
-                isweather = True
-            else:
-                isweather = False
-        else:
-            istime = False
-    elif season == "autumn" or season == "fall":
+
+    if ((time_hour >= sunset[0]) or (time_hour <= sunrise[0])) and ((time_min >= sunset[1]) or (time_min <= sunrise[1])):
         istime = True
-        if time_hour >= 19 or time_hour <= 7:
-            if "sunny" in weather:
-                isweather = True
-            else:
-                isweather = False
+        if weather == "sunny":
+            isweather = True
         else:
-            istime = False
-    elif season == "winter":
-        istime = True
-        if time_hour >= 17 or time_hour <= 8:
-            if "sunny" in weather:
-                isweather = True
-            else:
-                isweather = False
-        else:
-            istime = False
+            isweather = False
     else:
-        print("N/A")
+        istime = False
+
 
     if istime and isweather:
         yes()
@@ -58,10 +30,12 @@ def main():
 
 def inp():
 #   season = input("Season (lowercase): ")
-    sunrise, sunset = getSunData(0)
+
     time_hour, time_minute = map(int, input("Enter the time (Hours:Minute)(24hours): ").split(":"))
+    offset = int(input("Which day will you go (0 means today, 14 max): "))
 #   weather = input("Weather: ")
-    weather = getWeather(0)
+    weather = getWeather(offset)
+    sunrise, sunset = getSunData(offset)
     return sunrise, sunset, time_hour, time_minute, weather
 
 def getSunData_JSON():
@@ -80,7 +54,7 @@ def getSunData(day_offset):
     day = sunStatus["days"][day_offset]
     sunrise = str(day["sunrise"]).split(":")
     sunset = str(day["sunset"]).split(":")
-    return sunrise, sunset
+    return list(map(int, sunrise)), list(map(int, sunset))
 
 def getWeather_JSON():
     url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}/?key={API_KEY}"
