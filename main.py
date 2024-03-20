@@ -83,3 +83,4 @@ def yes():
     print("There are visible stars in the sky! ")
 
 main()
+#zznyjidi出品
