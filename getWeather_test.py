@@ -19,4 +19,4 @@ def getWeather(day_offset):
     return day
     
 
-print(*getWeather())
+print(*getWeather(0))
