@@ -13,7 +13,7 @@ def main():
 
     if ((time_hour >= sunset[0]) or (time_hour <= sunrise[0])) and ((time_min >= sunset[1]) or (time_min <= sunrise[1])):
         istime = True
-        if weather == "sunny":
+        if "sunny" in weather:
             isweather = True
         else:
             isweather = False
