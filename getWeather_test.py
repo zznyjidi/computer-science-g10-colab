@@ -13,9 +13,9 @@ def getWeather_JSON():
         exit()
     return json.loads(weather)
 
-def getWeather():
+def getWeather(day_offset):
     weather = getWeather_JSON()
-    day = weather["days"][0]["preciptype"]
+    day = weather["days"][day_offset]["preciptype"]
     return day
     
 
