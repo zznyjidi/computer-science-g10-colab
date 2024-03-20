@@ -2,7 +2,7 @@
 #Date: Mar. 19, 2024
 #Purpose: Mystery Madness Code 2 - Doc 1 - Create a program about the sky
         #Check if you can currently see stars
-
+import urllib.request, urllib.error, json
 
 #weather = 
 
@@ -60,6 +60,27 @@ def inp():
     time_hour, time_minute = map(int, input("Enter the time (Hours[space]Minute)(24hours): ").split())
     weather = input("Weather: ")
     return season, time_hour, weather
+
+def getWeather_JSON():
+    location = "Markham,CA"
+    API_KEY = ""
+    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}/?key={API_KEY}"
+    request = urllib.request.Request(url,method="GET")
+    try:
+        with urllib.request.urlopen(request) as response:
+            weather = response.read().decode(response.headers.get_content_charset("utf-8"))
+    except urllib.error.HTTPError as error:
+        print("Check your Internet Connection and the API Server! ")
+        exit()
+    return json.loads(weather)
+
+# Get weather of Markham
+# Usage: 
+# @para day_offset: the day to get weather, 0 means today
+def getWeather(day_offset):
+    weather = getWeather_JSON()
+    day = weather["days"][day_offset]["preciptype"]
+    return day
 
 def no_weather():
     print("There are no visible stars in the sky...\nFind a better weather")
