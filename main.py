@@ -4,11 +4,12 @@
         #Check if you can currently see stars
 import urllib.request, urllib.error, json
 
-#weather = 
+location = "Markham,CA"
+API_KEY = "PMHF3BX9NP3BNHDT7BYA2X6Y5"
 
 def main():
-    #global weather
-    season, time_hour, weather = inp()
+    global location, API_KEY
+    sunrise, sunset, time_hour, time_min, weather = inp()
     if season == "spring":
         if time_hour >= 19 or time_hour <= 7:
             istime = True
@@ -30,7 +31,7 @@ def main():
     elif season == "autumn" or season == "fall":
         istime = True
         if time_hour >= 19 or time_hour <= 7:
-            if weather == "sunny":
+            if "sunny" in weather:
                 isweather = True
             else:
                 isweather = False
@@ -39,7 +40,7 @@ def main():
     elif season == "winter":
         istime = True
         if time_hour >= 17 or time_hour <= 8:
-            if weather == "sunny":
+            if "sunny" in weather:
                 isweather = True
             else:
                 isweather = False
@@ -56,14 +57,32 @@ def main():
         no_weather()
 
 def inp():
-    season = input("Season (lowercase): ")
-    time_hour, time_minute = map(int, input("Enter the time (Hours[space]Minute)(24hours): ").split())
-    weather = input("Weather: ")
-    return season, time_hour, weather
+#   season = input("Season (lowercase): ")
+    sunrise, sunset = getSunData(0)
+    time_hour, time_minute = map(int, input("Enter the time (Hours:Minute)(24hours): ").split(":"))
+#   weather = input("Weather: ")
+    weather = getWeather(0)
+    return sunrise, sunset, time_hour, time_minute, weather
+
+def getSunData_JSON():
+    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}?unitGroup=us&key={API_KEY}&include=days&elements=datetime,sunrise,sunset"
+    request = urllib.request.Request(url,method="GET")
+    try:
+        with urllib.request.urlopen(request) as response:
+            sunStatus = response.read().decode(response.headers.get_content_charset("utf-8"))
+    except urllib.error.HTTPError as error:
+        print("Check your Internet Connection and the API Server! ")
+        exit()
+    return json.loads(sunStatus)
+
+def getSunData(day_offset):
+    sunStatus = getSunData_JSON()
+    day = sunStatus["days"][day_offset]
+    sunrise = str(day["sunrise"]).split(":")
+    sunset = str(day["sunset"]).split(":")
+    return sunrise, sunset
 
 def getWeather_JSON():
-    location = "Markham,CA"
-    API_KEY = "PMHF3BX9NP3BNHDT7BYA2X6Y5"
     url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}/?key={API_KEY}"
     request = urllib.request.Request(url,method="GET")
     try:
