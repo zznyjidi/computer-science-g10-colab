@@ -63,7 +63,7 @@ def inp():
 
 def getWeather_JSON():
     location = "Markham,CA"
-    API_KEY = ""
+    API_KEY = "PMHF3BX9NP3BNHDT7BYA2X6Y5"
     url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{location}/?key={API_KEY}"
     request = urllib.request.Request(url,method="GET")
     try:
