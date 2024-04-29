@@ -14,6 +14,11 @@ def day():
     Moon = False
     return True
 
+def night():
+    Sun = False
+    Moon = True
+    return False
+
 instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
     operation. Operation SKYFALL.
     During 1898, we have replaced birds with drones,"\
