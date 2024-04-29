@@ -5,7 +5,7 @@ sceneLayout = (
     (())
 )
 
-w = scene()
+w = Tk()
 
 def day():
     global Sun
@@ -18,4 +18,4 @@ l1 = Label(w, text="Is it Day or Night"\
                          "real? (Enter \"day\" or \"night\")")
 buttonDay = Button(w, text='Day', command=day)
 
-
+w.mainloop()
