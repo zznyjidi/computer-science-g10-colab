@@ -5,7 +5,7 @@ import random
 sceneLayout = [
     (
         (("prompt", "label", {"text": "(Press Button Below to Start)"}),),
-        (("continue", "button", {"text": "Start", "command": "lambda: createScene(1)"}),)
+        (("continue", "button", {"text": "Start", "command": lambda: createScene(1)}),)
     ),
     (
         (("test", "label", {"text": "(test)"}),),
@@ -18,6 +18,7 @@ def createScene(sceneIndex):
         window.window.destroy()
     window = scene(sceneLayout[sceneIndex])
     window.startWindow()
+    print("Window Updated")
 
 window = None
 createScene(0)

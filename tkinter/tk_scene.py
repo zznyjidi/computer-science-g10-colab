@@ -20,18 +20,16 @@ class element:
     def addArgs(this, args):
         for arg, key in args.items():
             this.propertys[arg] = key   
-            if type(arg) in [str] and not "lambda" in arg: 
+            if type(key) in [str]: 
                 exec(f"this.element.config({arg}=\"{key}\")")
+            elif arg == "command" and str(type(key)) in "<class 'function'>":
+                this.element.config(command=key)
             else:
                 exec(f"this.element.config({arg}={key})")
 
-    def forceReconfig(this):
-        for arg, key in this.propertys.items():
-            exec(f"this.element.config({arg}=\"{key}\")")
-
     def addPackArgs(this, args):
         for arg, key in args.items():
-            if type(arg) in [int,float,bool]:
+            if type(key) in [int,float,bool]:
                 this.packPropertys += f"{arg}={key}, "
             else:
                 this.packPropertys += f"{arg}=\"{key}\", "
@@ -39,7 +37,6 @@ class element:
 
     def pack(this):
         exec(f"this.element.pack({this.packPropertys})")
-
 
 class scene:
     window = None
