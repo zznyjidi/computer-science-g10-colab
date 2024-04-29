@@ -32,11 +32,12 @@ def sbmt1():
             l3 = Label(w2, text='Correct, advance to the next round')
             l3.pack()
             islife = True
+            ending()
     else:
             l3 = Label(w2, text='Incorrect (Why did you not search online?)')
             l3.pack()
             islife = False
-    ending()
+    
 
 def sbmt2():
     global islife
@@ -44,11 +45,12 @@ def sbmt2():
             l3 = Label(w2, text='Correct (you probably searched online)')
             l3.pack()
             islife = True
+            ending()
     else:
             l3 = Label(w2, text='Incorrect (Why did you not search online?)')
             l3.pack()
             islife = False
-    ending()
+    
 
 def sbmt3():
     global ecode
