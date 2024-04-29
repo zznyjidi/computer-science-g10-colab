@@ -7,19 +7,27 @@ sceneLayout = (
 
 w = Tk()
 
+daytime = None
+
 def day():
     global Sun
     global Moon
     Sun = True
     Moon = False
-    return True
+    daytime = True
+    time()
 
 def night():
     global Sun
     global Moon
     Sun = False
     Moon = True
-    return False
+    daytime = False
+    time()
+    
+def time():
+    if daytime:
+         
 
 instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
     operation. Operation SKYFALL.
@@ -31,5 +39,7 @@ instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
 l1 = Label(w, text="Is it Day or Night"\
                          "real? (Enter \"day\" or \"night\")")
 buttonDay = Button(w, text='Day', command=day)
+
+
 
 w.mainloop()
