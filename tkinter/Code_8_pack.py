@@ -27,6 +27,7 @@ def night():
 islife = None
 
 def sbmt1():
+    global islife
     if e1.get() == 'Stratocumulus' and e2.get() == 'Cumulus' and e3.get() == 'Cumulonimbus':
             l3 = Label(w2, text='Correct, advance to the next round')
             l3.pack()
@@ -34,10 +35,11 @@ def sbmt1():
     else:
             l3 = Label(w2, text='Incorrect (Why did you not search online?)')
             l3.pack()
-            iflife = False
+            islife = False
     ending()
 
 def sbmt2():
+    global islife
     if e1.get() == 'thundurus':
             l3 = Label(w2, text='Correct (you probably searched online)')
             l3.pack()
@@ -49,26 +51,40 @@ def sbmt2():
     ending()
 
 def sbmt3():
-    if ecode.get() == 80.932:
+    global ecode
+    if float(ecode.get()) == 80.932:
         true_ending()
     else:
-        w.destroy()
+        exit()
 
 
 def sbmt4():
-    if e4.get() == correct_answer:
-        return
+    global ecode
+    if float(e4.get()) == correct_answer:
+        if islife:
+            code = Label(w3, text='Correct! Your code is 80.932')
+            code.pack()
+        else:
+            l6 = Label(w3, text='Wrong answer')
+            l6.pack()
+            exit()
+        elabel = Label(w3, text='Code: ')
+        elabel.pack()
+        ecode = Entry(w3)
+        ecode.pack()
+        submit3 = Button(w3, text='Submit', command=sbmt3)
+        submit3.pack()
     else:
-        l6 = Label(w3, text='Wrong answer')
+        l6 = Label(w3, text=f"Sorry, the correct answer is {correct_answer}.")
         l6.pack()
-        w.destroy()
+        exit()
 
 
 def time():
     global islife
     global w2
     global e1, e2, e3
-    w2 = Toplevel()
+    w2 = Tk()
     if daytime:
         l2 = Label(w2, text="Put the 3 most common clouds in order from smallest"\
               "to largest: Stratocumulus, Cumulus, Cumulonimbus: ")
@@ -90,23 +106,12 @@ def time():
         
 def ending():
     global w3, ecode
-    w3 = Toplevel()
-    l4 = Label(w3, text='So I see you’ve come to the end of the program."\
-          "To ensure you are a real person, please enter the"\
-          "code given to you after you complete a question.')
+    w3 = Tk()
+    l4 = Label(w3, text='So I see you’ve come to the end of the program.\n\
+          To ensure you are a real person, please enter the code given to you after you complete a question.')
     l4.pack()
     mathq()
-    if islife:
-        code = Label(w2, text='Correct! Your code is 80.932')
-        code.pack()
-    else:
-        l6 = Label(w2, text='Wrong answer')
-        l6.pack()
-        w.destroy()
-    ecode = Entry(w2)
-    ecode.pack()
-    submit3 = Button(w3, text='Submit', command=sbmt3)
-    submit3.pack()
+    
     
 
 def mathq():
@@ -127,30 +132,29 @@ def mathq():
     submit4.pack()
 
 def true_ending():
-    l7 = Label(w2, text="Welcome User428. To further understand why"\
+    w4 = Toplevel()
+    l7 = Label(w4, text="Welcome User428. To further understand why"\
               "the sky and the Sun are not real, we must go")
-    l8 = Label(w2, text="back to 2021 when COVID started. Truth be told,"\
+    l8 = Label(w4, text="back to 2021 when COVID started. Truth be told,"\
           "COVID was a lie created")
-    l9 = Label(w2, text="as a joint operation with China and America to remove the sky.")
-    l10 = Label(w2, text="Now they have set their sights on revealing to"\
+    l9 = Label(w4, text="as a joint operation with China and America to remove the sky.")
+    l10 = Label(w4, text="Now they have set their sights on revealing to"\
           "the world that we live in")
-    l11 = Label(w2, text="the matrix. Your mission, should you choose to"\
+    l11 = Label(w4, text="the matrix. Your mission, should you choose to"\
           "accept, is to save the world.")
     l7.pack()
     l8.pack()
     l9.pack()
     l10.pack()
     l11.pack()
-    w.destroy()
+    quitbutton = Button(w4, text='Quit')
+    exit()
 
 
-
-instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
-    operation. Operation SKYFALL.
-    During 1898, we have replaced birds with drones,"\
-    and now in the past 5 years we have"\
-    been working on deleting the sky ")
-    Lets see how loyal you are to our cause…''')
+instruction = Label(w, text='''Welcome User428, this is the CIA's secret operation. Operation SKYFALL.\n
+    During 1898, we have replaced birds with drones, and now in the past 5 years we have 
+been working on deleting the sky
+Lets see how loyal you are to our cause…''')
 instruction.pack()
 
 l1 = Label(w, text="Is it Day or Night"\
