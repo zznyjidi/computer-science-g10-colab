@@ -20,7 +20,7 @@ class element:
     def addArgs(this, args):
         for arg, key in args.items():
             this.propertys[arg] = key   
-            if type(arg) in [str]: 
+            if type(arg) in [str] and not "lambda" in arg: 
                 exec(f"this.element.config({arg}=\"{key}\")")
             else:
                 exec(f"this.element.config({arg}={key})")
