@@ -38,6 +38,10 @@ def time():
     else:
         l2 = Label(w2, text="What is the thunder cloud Pokemon? ")
         e1 = Entry(w2)
+        if e1.get() == 'thundurus':
+            l3 = Label(w2, text='Correct (you probably searched online)')
+        else:
+            l3 = Label(w2, text='Incorrect (Why did you not search online?)')
 
 instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
     operation. Operation SKYFALL.
