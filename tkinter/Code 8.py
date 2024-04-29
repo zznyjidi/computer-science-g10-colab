@@ -15,6 +15,8 @@ def day():
     return True
 
 def night():
+    global Sun
+    global Moon
     Sun = False
     Moon = True
     return False
