@@ -25,8 +25,11 @@ def night():
     Moon = True
     daytime = False
     time()
-    
+
+islife = None
 def time():
+    global islife
+    global w2
     w2 = Toplevel()
     if daytime:
         l2 = Label(w2, text="Put the 3 most common clouds in order from smallest"\
@@ -34,15 +37,19 @@ def time():
         e1, e2, e3 = Entry(w2), Entry(w2), Entry(w2)
         if e1.get() == 'Stratocumulus' and e2.get() == 'Cumulus' and e3.get() == 'Cumulonimbus':
             l3 = Label(w2, text='Correct, advance to the next round')
+            islife = True
         else:
             l3 = Label(w2, text='Incorrect (Why did you not search online?)')
+            iflife = False
     else:
         l2 = Label(w2, text="What is the thunder cloud Pokemon? ")
         e1 = Entry(w2)
         if e1.get() == 'thundurus':
             l3 = Label(w2, text='Correct (you probably searched online)')
+            islife = True
         else:
             l3 = Label(w2, text='Incorrect (Why did you not search online?)')
+            islife = False
 
 instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
     operation. Operation SKYFALL.
@@ -73,12 +80,19 @@ def mathq():
         w.destroy()
 
 def ending():
+    
     global w3
     w3 = Toplevel()
     l4 = Label(w3, text='So I see you’ve come to the end of the program."\
           "To ensure you are a real person, please enter the"\
           "code given to you after you complete a question.')
     mathq()
+    if islife:
+        code = Label(w2, text='Correct! Your code is 80.932')
+    else:
+        l6 = Label(w2, text='Wrong answer')
+        w.destroy()
+        
 
 
 
