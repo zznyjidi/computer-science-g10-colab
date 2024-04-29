@@ -2,14 +2,22 @@ from tk_scene import scene
 from tkinter import *
 import random
 
-sceneLayout = (
-    (("prompt", "label", {"text": "(Press Button Below to Start)"}),),
-    (("continue", "button", {"text": "Start"}),)
-)
+sceneLayout = [
+    (
+        (("prompt", "label", {"text": "(Press Button Below to Start)"}),),
+        (("continue", "button", {"text": "Start", "command": "lambda: createScene(1)"}),)
+    ),
+    (
+        (("test", "label", {"text": "(test)"}),),
+    )
+]
 
 def createScene(sceneIndex):
     global window
+    if window:
+        window.window.destroy()
     window = scene(sceneLayout[sceneIndex])
+    window.startWindow()
 
 window = None
 createScene(0)
