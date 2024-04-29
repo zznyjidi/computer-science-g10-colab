@@ -87,6 +87,8 @@ def mathq():
     else:
         l6 = Label(w3, text='Wrong answer')
         w.destroy()
+        w2.destroy()
+        w3.destroy()
 
 def true_ending():
     l7 = Label(w2, text="Welcome User428. To further understand why"\
@@ -115,11 +117,15 @@ def ending():
     else:
         l6 = Label(w2, text='Wrong answer')
         w.destroy()
+        w2.destroy()
+        w3.destroy()
     ecode = Entry(w2)
     if ecode.get() == 80.932:
         true_ending()
     else:
         w.destroy()
+        w2.destroy()
+        w3.destroy()
 
 
 
