@@ -7,8 +7,14 @@ sceneLayout = (
     (("continue", "button", {"text": "Start"}),)
 )
 
-window = scene(sceneLayout)
+def createScene(sceneIndex):
+    global window
+    window = scene(sceneLayout[sceneIndex])
+
+window = None
+createScene(0)
 window.startWindow()
+
 w = Tk()
 
 daytime = None
