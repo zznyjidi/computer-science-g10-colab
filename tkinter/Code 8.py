@@ -1,5 +1,6 @@
 from tk_scene import scene
 from tkinter import *
+import random
 
 sceneLayout = (
     (())
@@ -53,6 +54,31 @@ instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
 l1 = Label(w, text="Is it Day or Night"\
                          "real? (Enter \"day\" or \"night\")")
 buttonDay = Button(w, text='Day', command=day)
+
+def mathq():
+    equations = [
+        ("54 * 3", 54 * 3),
+        ("847 / 11", 847 / 11),
+        ("21 * 12", 21 * 12),
+        ("5 * 10 + 35", 5 * 10 + 35),
+        ("9898 / 98", 9898 / 98)
+    ]
+    equation, correct_answer = random.choice(equations)
+    l5 = Label(w3, text=equation)
+    e4 = Entry(w3)
+    if e4.get() == correct_answer:
+        return
+    else:
+        l6 = Label(w3, text='Wrong answer')
+        w.destroy()
+
+def ending():
+    global w3
+    w3 = Toplevel()
+    l4 = Label(w3, text='So I see you’ve come to the end of the program."\
+          "To ensure you are a real person, please enter the"\
+          "code given to you after you complete a question.')
+    mathq()
 
 
 
