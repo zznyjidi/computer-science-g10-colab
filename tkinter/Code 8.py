@@ -95,9 +95,25 @@ def mathq():
     else:
         l6 = Label(w3, text='Wrong answer')
         w.destroy()
+        w2.destroy()
+        w3.destroy()
+
+def true_ending():
+    l7 = Label(w2, text="Welcome User428. To further understand why"\
+              "the sky and the Sun are not real, we must go")
+    l8 = Label(w2, text="back to 2021 when COVID started. Truth be told,"\
+          "COVID was a lie created")
+    l9 = Label(w2, text="as a joint operation with China and America to remove the sky.")
+    l10 = Label(w2, text="Now they have set their sights on revealing to"\
+          "the world that we live in")
+    l11 = Label(w2, text="the matrix. Your mission, should you choose to"\
+          "accept, is to save the world.")
+    w.destroy()
+    w2.destroy()
+    w3.destroy()
+    
 
 def ending():
-    
     global w3
     w3 = Toplevel()
     l4 = Label(w3, text='So I see you’ve come to the end of the program."\
@@ -109,7 +125,15 @@ def ending():
     else:
         l6 = Label(w2, text='Wrong answer')
         w.destroy()
-        
+        w2.destroy()
+        w3.destroy()
+    ecode = Entry(w2)
+    if ecode.get() == 80.932:
+        true_ending()
+    else:
+        w.destroy()
+        w2.destroy()
+        w3.destroy()
 
 
 
