@@ -3,9 +3,12 @@ from tkinter import *
 import random
 
 sceneLayout = (
-    (())
+    (("prompt", "label", {"text": "(Press Button Below to Start)"}),),
+    (("continue", "button", {"text": "Start"}),)
 )
 
+window = scene(sceneLayout)
+window.startWindow()
 w = Tk()
 
 daytime = None
