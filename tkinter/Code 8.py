@@ -26,8 +26,18 @@ def night():
     time()
     
 def time():
+    w2 = Toplevel()
     if daytime:
-         
+        l2 = Label(w2, text="Put the 3 most common clouds in order from smallest"\
+              "to largest: Stratocumulus, Cumulus, Cumulonimbus: ")
+        e1, e2, e3 = Entry(w2), Entry(w2), Entry(w2)
+        if e1.get() == 'Stratocumulus' and e2.get() == 'Cumulus' and e3.get() == 'Cumulonimbus':
+            l3 = Label(w2, text='Correct, advance to the next round')
+        else:
+            l3 = Label(w2, text='Incorrect (Why did you not search online?)')
+    else:
+        l2 = Label(w2, text="What is the thunder cloud Pokemon? ")
+        e1 = Entry(w2)
 
 instruction = Label(w, text='''Welcome User428, this is the CIA's secret"\
     operation. Operation SKYFALL.
