@@ -54,7 +54,7 @@ def sbmt2():
 
 def sbmt3():
     global ecode
-    if float(ecode.get()) == 80.932:
+    if ecode.get() == '80.932':
         true_ending()
     else:
         exit()
@@ -62,7 +62,7 @@ def sbmt3():
 
 def sbmt4():
     global ecode
-    if float(e4.get()) == correct_answer:
+    if e4.get() == str(correct_answer):
         if islife:
             code = Label(w3, text='Correct! Your code is 80.932')
             code.pack()
