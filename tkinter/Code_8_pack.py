@@ -131,6 +131,9 @@ def mathq():
     submit4 = Button(w3, text='Submit', command=sbmt4)
     submit4.pack()
 
+def Quit():
+    exit()
+
 def true_ending():
     w4 = Toplevel()
     l7 = Label(w4, text="Welcome User428. To further understand why"\
@@ -147,8 +150,8 @@ def true_ending():
     l9.pack()
     l10.pack()
     l11.pack()
-    quitbutton = Button(w4, text='Quit')
-    exit()
+    quitbutton = Button(w4, text='Quit', command=Quit)
+    quitbutton.pack()
 
 
 instruction = Label(w, text='''Welcome User428, this is the CIA's secret operation. Operation SKYFALL.\n
