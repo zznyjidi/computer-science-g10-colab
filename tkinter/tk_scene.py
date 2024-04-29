@@ -19,8 +19,11 @@ class element:
 
     def addArgs(this, args):
         for arg, key in args.items():
-            this.propertys[arg] = key    
-            exec(f"this.element.config({arg}=\"{key}\")")
+            this.propertys[arg] = key   
+            if type(arg) in [str]: 
+                exec(f"this.element.config({arg}=\"{key}\")")
+            else:
+                exec(f"this.element.config({arg}={key})")
 
     def forceReconfig(this):
         for arg, key in this.propertys.items():
