@@ -41,4 +41,6 @@ def getWeather(day_offset):
     day = weather["days"][day_offset]["preciptype"]
     return day
 
-print(getSunData(0))
+weather = getWeather_JSON()
+day = weather["days"]
+print(len(day))
