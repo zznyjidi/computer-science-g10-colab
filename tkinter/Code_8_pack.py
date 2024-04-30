@@ -6,6 +6,8 @@ w.title('Code 8')
 
 daytime = None
 
+
+
 def day():
     global Sun
     global Moon
@@ -41,7 +43,8 @@ def sbmt1():
 
 def sbmt2():
     global islife
-    if e1.get() == 'thundurus':
+    print(_varibleR.get())
+    if _varibleR.get() == 3:
             l3 = Label(w2, text='Correct (you probably searched online)',font="Consolas")
             l3.pack()
             islife = True
@@ -85,8 +88,8 @@ def sbmt4():
 def time():
     global islife
     global w2
-    global e1, e2, e3
-    w2 = Tk()
+    global e1, e2, e3, _varibleR, rb1, rb2, rb3
+    w2 = Toplevel()
     if daytime:
         l2 = Label(w2, text="Put the 3 most common clouds in order from smallest"\
               "to largest: Stratocumulus, Cumulus, Cumulonimbus: ",font="Consolas")
@@ -101,10 +104,18 @@ def time():
     else:
         l2 = Label(w2, text="What is the thunder cloud Pokemon? ",font="Consolas")
         l2.pack()
-        e1 = Entry(w2)
-        e1.pack()
+        _varibleR = IntVar()
+        _varibleR.set(1)
+        rb1 = Radiobutton(w2, text='Snorlax', variable=_varibleR, value=1)
+        rb2 = Radiobutton(w2, text='Charmeleon', variable=_varibleR, value=2)
+        rb3 = Radiobutton(w2, text='Thundurus', variable=_varibleR, value=3)
+        rb1.pack()
+        rb2.pack()
+        rb3.pack()
         submit2 = Button(w2, text='Submit', command=sbmt2, fg = "blue",font="Consolas")
         submit2.pack()
+        
+        
         
 def ending():
     global w3, ecode
