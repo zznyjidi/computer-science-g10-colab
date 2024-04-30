@@ -43,7 +43,6 @@ def sbmt1():
 
 def sbmt2():
     global islife
-    print(_varibleR.get())
     if _varibleR.get() == 3:
             l3 = Label(w2, text='Correct (you probably searched online)',font="Consolas")
             l3.pack()
