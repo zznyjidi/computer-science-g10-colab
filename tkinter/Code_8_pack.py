@@ -64,7 +64,7 @@ def sbmt3():
 
 def sbmt4():
     global ecode
-    if e4.get() == str(correct_answer):
+    if float(e4.get()) == correct_answer:
         if islife:
             code = Label(w3, text='Correct! Your code is 80.932',font="Consolas")
             code.pack()
