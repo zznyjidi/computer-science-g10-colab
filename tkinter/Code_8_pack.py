@@ -1,7 +1,9 @@
 #Name: Qianyi, Zixuan, Tommy, Ryan
+
 from tkinter import *
 import random
 
+# create the main window
 w = Tk()
 w.title('Code 8')
 
